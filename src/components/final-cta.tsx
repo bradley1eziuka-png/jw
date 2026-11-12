@@ -24,9 +24,9 @@ export function FinalCta() {
                 If It Has Dirt, We Clean It!
               </h2>
               <p className="mt-4 max-w-xl text-pretty text-base leading-relaxed text-primary-foreground/85 sm:text-lg">
-                Request a free estimate from J W Cleaning for commercial cleaning, janitorial
-                services, carpet cleaning, or tile and grout cleaning in Davison and surrounding
-                communities.
+                Need reliable cleaning for your home or business? Contact J W Cleaning today to
+                discuss your project with an experienced local professional serving Davison and
+                surrounding communities since 1992.
               </p>
             </div>
             <div className="flex flex-col gap-3 sm:flex-row lg:flex-col">

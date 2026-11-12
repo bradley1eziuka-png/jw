@@ -126,6 +126,9 @@ export function ServiceDetail() {
                 alt={service.imageAlt}
                 loading="lazy"
                 className="aspect-[4/5] w-full object-cover sm:aspect-square"
+                style={
+                  service.imagePosition ? { objectPosition: service.imagePosition } : undefined
+                }
               />
             </div>
           </Reveal>

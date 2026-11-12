@@ -5,17 +5,17 @@ const STEPS = [
   {
     num: "01",
     title: "Request Your Estimate",
-    desc: "Tell us what kind of cleaning you need and share a few details about your property.",
+    desc: "Tell us what needs cleaning and share a few details about your home or business.",
   },
   {
     num: "02",
-    title: "Talk It Through",
-    desc: "We'll go over your needs with you and answer your questions.",
+    title: "Discuss Your Cleaning Needs",
+    desc: "Willy will go over your project with you, answer your questions, and discuss the next steps.",
   },
   {
     num: "03",
-    title: "Get the Job Done Right",
-    desc: "Willy and J W Cleaning take pride in quality work and customer satisfaction.",
+    title: "Enjoy a Cleaner Space",
+    desc: "Get professional cleaning from a local business that takes pride in quality work and customer satisfaction.",
   },
 ];
 

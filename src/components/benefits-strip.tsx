@@ -5,22 +5,22 @@ const BENEFITS = [
   {
     icon: CalendarCheck,
     title: "Established in 1992",
-    desc: "Over 30 years of cleaning experience.",
+    desc: "Serving local customers with professional cleaning services for more than three decades.",
   },
   {
     icon: UserCheck,
     title: "Owner-Operated",
-    desc: "Personal attention from a local business.",
+    desc: "Personal attention and pride in every job.",
   },
   {
     icon: Building2,
     title: "Residential & Commercial",
-    desc: "Homes, offices, and commercial properties.",
+    desc: "Cleaning services for homes, offices, and commercial properties.",
   },
   {
     icon: ThumbsUp,
     title: "Customer Satisfaction Focused",
-    desc: "Quality work and doing the job right.",
+    desc: "We take pride in quality work and making sure customers are happy with the results.",
   },
 ];
 

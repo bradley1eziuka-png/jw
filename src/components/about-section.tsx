@@ -16,6 +16,7 @@ export function AboutSection() {
                 alt={business.images.about.alt}
                 loading="lazy"
                 className="aspect-[4/5] w-full object-cover sm:aspect-[5/4] lg:aspect-[4/5]"
+                style={{ objectPosition: "55% 75%" }}
               />
               <div className="absolute bottom-4 left-4 rounded-xl bg-background/90 px-4 py-3 shadow-md backdrop-blur-sm">
                 <p className="font-serif text-sm italic text-foreground/80">
@@ -33,13 +34,17 @@ export function AboutSection() {
               Owner-Operated Since 1992
             </h2>
             <p className="mt-4 text-pretty text-base leading-relaxed text-muted-foreground sm:text-lg">
-              J W Cleaning was founded in 1992 by Willy Robere with a commitment to delivering
-              dependable cleaning services and quality results. For more than three decades, Willy
-              has taken pride in his work and in making sure customers are satisfied with the job.
+              J W Cleaning was founded in 1992 by Willy Robere with one goal: provide quality
+              cleaning services and leave customers happy with the results.
             </p>
             <p className="mt-4 text-pretty text-base leading-relaxed text-muted-foreground sm:text-lg">
-              As an owner-operated local business, J W Cleaning believes in personal attention,
-              dependable service, and doing the job right.
+              More than three decades later, that commitment hasn&rsquo;t changed. From commercial
+              cleaning and janitorial services to carpet and tile cleaning, Willy takes personal
+              pride in doing the job right.
+            </p>
+            <p className="mt-4 text-pretty text-base leading-relaxed text-muted-foreground sm:text-lg">
+              When you choose J W Cleaning, you&rsquo;re working with an experienced local
+              professional who cares about the quality of his work.
             </p>
 
             <ul className="mt-7 grid grid-cols-1 gap-3 sm:grid-cols-2">

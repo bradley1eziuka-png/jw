@@ -168,7 +168,7 @@ export function EstimateForm({
         <div className="flex flex-col gap-1.5">
           <h3 className="text-xl font-bold text-foreground">Get a Free Estimate</h3>
           <p className="text-sm text-muted-foreground">
-            Tell us a little about your space and we&rsquo;ll help you get started.
+            Tell us what you need cleaned, and Willy will get in touch to discuss your project.
           </p>
         </div>
       ) : null}
@@ -264,7 +264,7 @@ export function EstimateForm({
             id={`${uid}-message`}
             name="message"
             rows={4}
-            placeholder="A few details about your property, the cleaning you need, timing…"
+            placeholder="Tell us what needs cleaning, where you're located, and when you'd like service..."
             value={values.message}
             onChange={(e) => update("message", e.target.value)}
             className="resize-none"
@@ -302,7 +302,7 @@ export function EstimateForm({
         className="mt-1 h-12 w-full text-base font-semibold"
         disabled={sending}
       >
-        {sending ? "Sending…" : "Request My Free Estimate"}
+        {sending ? "Sending…" : "Get My Free Estimate"}
       </Button>
     </form>
   );

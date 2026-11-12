@@ -21,6 +21,16 @@ export const IMG = {
   cleanerBright: "/images/cleaner-bright.jpg",
   cleanerDusting: "/images/cleaner-dusting.jpg",
   heroLivingRoom: "/images/hero-living-room.jpg",
+  aboutCleaning: "/images/about-cleaning.webp",
+  // Service-specific illustrative images (stock-style, not real J W Cleaning projects).
+  svcCommercialCleaning: "/images/services/commercial-cleaning.webp",
+  svcJanitorial: "/images/services/commercial-janitorial-services.webp",
+  svcResidentialCarpet: "/images/services/residential-carpet-cleaning.webp",
+  svcCommercialCarpet: "/images/services/commercial-carpet-cleaning.webp",
+  svcTileGrout: "/images/services/tile-and-grout-cleaning.webp",
+  svcUpholstery: "/images/services/upholstery-cleaning.webp",
+  svcMattress: "/images/services/mattress-cleaning.webp",
+  svcFloorStripping: "/images/services/tile-floor-stripping-and-waxing.webp",
 } as const;
 
 export type ImageRef = { src: string; alt: string };

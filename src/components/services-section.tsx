@@ -11,7 +11,7 @@ export function ServicesSection() {
         <SectionHeading
           eyebrow="What We Do"
           title="Commercial & Residential Cleaning Services"
-          description="From commercial cleaning and janitorial services to carpet, tile and grout cleaning, find the right service for your property in Davison and surrounding communities."
+          description="Whether you need dependable commercial cleaning, ongoing janitorial service, or professional carpet and tile cleaning, J W Cleaning brings decades of experience to every job."
         />
 
         <div className="mt-14 grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3">

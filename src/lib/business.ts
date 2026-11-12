@@ -149,7 +149,7 @@ export const business: BusinessConfig = {
   legalName: "",
   tagline: "When Quality Counts",
   description:
-    "J W Cleaning is an owner-operated cleaning business serving Davison, Michigan and surrounding communities since 1992. Commercial cleaning, janitorial services, carpet cleaning, and tile and grout cleaning.",
+    "J W Cleaning has proudly served Davison, Michigan and surrounding communities since 1992. Owner-operated commercial cleaning, janitorial services, carpet cleaning, and tile and grout cleaning.",
   foundingStory: `J W Cleaning was founded in 1992 by Willy Robere with a commitment to delivering dependable cleaning services and quality results. For more than three decades, Willy has taken pride in his work and in making sure customers are satisfied with the job.
 
 From commercial properties and janitorial services to residential carpet cleaning and tile and grout cleaning, J W Cleaning brings decades of hands-on experience to every project.
@@ -227,8 +227,8 @@ As an owner-operated local business, J W Cleaning believes in personal attention
       alt: "Bright, clean living room with a large area rug (stock photo)",
     },
     about: {
-      src: IMG.office,
-      alt: "Clean, modern open-plan commercial office (stock photo)",
+      src: IMG.aboutCleaning,
+      alt: "Professional carpet cleaning equipment being used on a carpet.",
     },
     servicesHero: { src: IMG.office, alt: "Clean, modern commercial office (stock photo)" },
     contactHero: {
@@ -242,16 +242,32 @@ As an owner-operated local business, J W Cleaning believes in personal attention
     // Stock photos only; labelled as samples. Swap in J W Cleaning's real photos, then set false.
     isSample: true,
     images: [
-      { src: IMG.office, alt: "Clean, modern commercial office space (stock photo)" },
-      { src: IMG.familyLiving, alt: "Living room with a clean area rug (stock photo)" },
       {
-        src: IMG.bathroomPristine,
-        alt: "Clean bathroom with tile floor and glass shower (stock photo)",
+        src: IMG.svcCommercialCleaning,
+        alt: "Mop cleaning the floor of a commercial office lobby (illustrative image)",
       },
-      { src: IMG.heroLivingRoom, alt: "Bright living room with upholstered seating (stock photo)" },
-      { src: IMG.whiteBedroom, alt: "Clean bedroom with a neatly made bed (stock photo)" },
-      { src: IMG.kitchen, alt: "Clean kitchen with a hard floor (stock photo)" },
-      { src: IMG.emptyApartment, alt: "Clean, empty interior space (stock photo)" },
+      {
+        src: IMG.svcJanitorial,
+        alt: "Janitorial cart with cleaning supplies in a commercial hallway (illustrative image)",
+      },
+      {
+        src: IMG.svcResidentialCarpet,
+        alt: "Carpet extraction wand cleaning a residential carpet (illustrative image)",
+      },
+      {
+        src: IMG.svcCommercialCarpet,
+        alt: "Carpet extraction wand cleaning an office carpet (illustrative image)",
+      },
+      { src: IMG.svcTileGrout, alt: "Rotary cleaning tool on a tiled floor (illustrative image)" },
+      {
+        src: IMG.svcUpholstery,
+        alt: "Upholstery extraction wand cleaning a fabric sofa (illustrative image)",
+      },
+      { src: IMG.svcMattress, alt: "Extraction wand cleaning a mattress (illustrative image)" },
+      {
+        src: IMG.svcFloorStripping,
+        alt: "Floor machine cleaning a tiled floor (illustrative image)",
+      },
     ],
   },
 
