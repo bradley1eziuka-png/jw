@@ -89,9 +89,9 @@ export function EstimateForm({
       return;
     }
 
-    // No endpoint configured yet: nothing is sent.
+    // No endpoint configured: never claim success when nothing can be sent.
     if (!formIsLive) {
-      setStatus("success");
+      setStatus("error");
       return;
     }
 
@@ -106,11 +106,20 @@ export function EstimateForm({
           phone: values.phone.trim(),
           service: values.service,
           message: values.message.trim(),
-          _subject: `New estimate request from ${values.fullName.trim()} (${values.service})`,
-          page: typeof window !== "undefined" ? window.location.href : "",
+          _subject: "New J W Cleaning Website Inquiry",
+          source: "J W Cleaning Website",
+          page: typeof window !== "undefined" ? window.location.pathname : "",
         }),
       });
-      setStatus(res.ok ? "success" : "error");
+      if (res.ok) {
+        // Clear the form only after Formspree confirms receipt.
+        setValues(emptyState);
+        setErrors({});
+        setAttempted(false);
+        setStatus("success");
+      } else {
+        setStatus("error"); // entered details are kept so the visitor can retry
+      }
     } catch {
       setStatus("error");
     } finally {
@@ -292,6 +301,7 @@ export function EstimateForm({
             <a href={phoneHref} className="font-semibold underline underline-offset-2">
               {phoneDisplay}
             </a>
+            .
           </p>
         </div>
       ) : null}

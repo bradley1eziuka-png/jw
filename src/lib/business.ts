@@ -274,12 +274,10 @@ As an owner-operated local business, J W Cleaning believes in personal attention
   // ── Lead form ─────────────────────────────────────────────────────────
   form: {
     provider: "formspree",
-    endpoint: "", // ← paste the client's Formspree endpoint here. Blank = demo mode.
-    successTitle: "Thank you! Your request is in.",
-    successMessage:
-      "Thanks for contacting {name}. We'll reach out soon to talk through your cleaning needs and your estimate.",
-    errorMessage:
-      "Sorry, we couldn't send your request. Please try again, or call (810) 397-3562 or email robere7138@yahoo.com.",
+    endpoint: "https://formspree.io/f/xnpdpkaq", // J W Cleaning inquiries (public Formspree form URL, not a secret)
+    successTitle: "Thank you! Your request has been sent successfully.",
+    successMessage: "{name} will be in touch to discuss your cleaning needs.",
+    errorMessage: "Sorry, we couldn't send your request. Please try again or call",
   },
 
   // ── SEO / launch ──────────────────────────────────────────────────────
