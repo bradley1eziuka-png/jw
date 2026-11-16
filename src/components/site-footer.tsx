@@ -167,6 +167,14 @@ export function SiteFooter() {
             >
               Terms of Service
             </Link>
+            <a
+              href="https://getarclo.com"
+              target="_blank"
+              rel="noopener"
+              className="text-xs text-muted-foreground transition-colors hover:text-primary"
+            >
+              Website by Arclo
+            </a>
           </div>
         </div>
       </div>
