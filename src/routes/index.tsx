@@ -8,8 +8,13 @@ import { GallerySection } from "@/components/gallery-section";
 import { ReviewsSection } from "@/components/reviews-section";
 import { FaqSection } from "@/components/faq-section";
 import { FinalCta } from "@/components/final-cta";
-import { getHomeFaqs } from "@/lib/faq";
-import { faqJsonLd, homeDescription, homeTitle, localBusinessJsonLd, pageHead } from "@/lib/seo";
+import {
+  homeDescription,
+  homeTitle,
+  localBusinessJsonLd,
+  pageHead,
+  websiteJsonLd,
+} from "@/lib/seo";
 
 export const Route = createFileRoute("/")({
   head: () =>
@@ -18,7 +23,7 @@ export const Route = createFileRoute("/")({
       rawTitle: true,
       description: homeDescription(),
       path: "/",
-      jsonLd: [localBusinessJsonLd(), faqJsonLd(getHomeFaqs())],
+      jsonLd: [localBusinessJsonLd(), websiteJsonLd()],
     }),
   component: Index,
 });

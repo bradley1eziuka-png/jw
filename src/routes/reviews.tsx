@@ -12,6 +12,8 @@ export const Route = createFileRoute("/reviews")({
       title: "Reviews",
       description: `${business.name} has focused on dependable service and customer satisfaction since 1992. Owner-operated cleaning in Davison, MI.`,
       path: "/reviews",
+      // No customer reviews to show yet; keep this thin page out of search until real reviews exist.
+      noindex: true,
       image: business.images.reviewsHero.src,
     }),
   component: ReviewsPage,

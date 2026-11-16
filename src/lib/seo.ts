@@ -93,11 +93,11 @@ const loc = () => {
 };
 
 export function homeTitle(): string {
-  return `${business.name} | Commercial & Carpet Cleaning${loc()}`;
+  return `Cleaning Services${loc()} | ${business.name}`;
 }
 
 export function homeDescription(): string {
-  return `${business.name} has provided professional cleaning services since 1992. Commercial cleaning, janitorial services, carpet cleaning, and tile and grout cleaning${loc()}.`;
+  return `${business.name} offers commercial cleaning, janitorial services, carpet cleaning, and tile cleaning${loc()}. Owner-operated since 1992. Get an estimate.`;
 }
 
 export function serviceTitle(s: Service): string {
@@ -106,8 +106,7 @@ export function serviceTitle(s: Service): string {
 
 export function serviceDescription(s: Service): string {
   return (
-    s.seoDescription ??
-    `${s.title} from ${business.name}${loc()}. ${s.short} Request a free estimate for your home or business.`
+    s.seoDescription ?? `${s.title} from ${business.name}${loc()}. ${s.short} Request an estimate.`
   );
 }
 
@@ -119,31 +118,36 @@ const SOCIAL_KEYS = Object.keys(business.social) as (keyof typeof business.socia
 export function localBusinessJsonLd(): object {
   const { contact } = business;
   const addr = contact.address;
-  const hasAddress = contact.showAddress && (addr.street || addr.city);
   const sameAs = [
     ...SOCIAL_KEYS.map((k) => business.social[k]),
     business.googleBusinessProfileUrl,
   ].filter(Boolean);
   const areas = allServiceAreas();
+  // City/state only: the street address is published only when contact.showAddress is true.
+  const hasAddress = !!(addr.city || (contact.showAddress && addr.street));
 
   const data: Record<string, unknown> = {
     "@context": "https://schema.org",
     "@type": business.schemaType,
-    "@id": absoluteUrl("/") ? `${absoluteUrl("/")}#business` : undefined,
+    "@id": businessId(),
     name: business.name,
     legalName: legalName !== business.name ? legalName : undefined,
     description: business.description,
+    slogan: business.tagline || undefined,
     url: absoluteUrl("/") || undefined,
     telephone: contact.phone || phoneDisplay,
     email: contact.email || undefined,
     image: imageUrl(undefined) || undefined,
+    logo: absoluteUrl(business.branding.logo.src) || undefined,
+    foundingDate: "1992",
+    founder: { "@type": "Person", name: "Willy Robere" },
     address: hasAddress
       ? {
           "@type": "PostalAddress",
-          streetAddress: addr.street || undefined,
+          streetAddress: contact.showAddress ? addr.street || undefined : undefined,
           addressLocality: addr.city || undefined,
           addressRegion: addr.state || undefined,
-          postalCode: addr.postalCode || undefined,
+          postalCode: contact.showAddress ? addr.postalCode || undefined : undefined,
           addressCountry: "US",
         }
       : undefined,
@@ -163,6 +167,36 @@ export function localBusinessJsonLd(): object {
   return stripUndefined(data);
 }
 
+/** Stable @id so every page refers to the same single LocalBusiness entity. */
+function businessId(): string | undefined {
+  return absoluteUrl("/") ? `${absoluteUrl("/")}#business` : undefined;
+}
+
+export function websiteJsonLd(): object {
+  return stripUndefined({
+    "@context": "https://schema.org",
+    "@type": "WebSite",
+    name: business.name,
+    url: absoluteUrl("/") || undefined,
+    publisher: businessId() ? { "@id": businessId() } : undefined,
+  });
+}
+
+/** BreadcrumbList. `items` are [name, path] pairs starting after Home. */
+export function breadcrumbJsonLd(items: [string, string][]): object {
+  const all: [string, string][] = [["Home", "/"], ...items];
+  return {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    itemListElement: all.map(([name, path], i) => ({
+      "@type": "ListItem",
+      position: i + 1,
+      name,
+      item: absoluteUrl(path) || undefined,
+    })),
+  };
+}
+
 export function serviceJsonLd(s: Service): object {
   const areas = allServiceAreas();
   return stripUndefined({
@@ -173,12 +207,9 @@ export function serviceJsonLd(s: Service): object {
     serviceType: s.title,
     url: absoluteUrl(`/services/${s.slug}`) || undefined,
     image: absoluteUrl(s.heroImage) || undefined,
-    provider: {
-      "@type": business.schemaType,
-      name: business.name,
-      url: absoluteUrl("/") || undefined,
-      telephone: business.contact.phone,
-    },
+    provider: businessId()
+      ? { "@id": businessId() }
+      : { "@type": business.schemaType, name: business.name, telephone: business.contact.phone },
     areaServed: areas.length ? areas.map(areaNode) : undefined,
   });
 }

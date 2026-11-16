@@ -282,8 +282,8 @@ As an owner-operated local business, J W Cleaning believes in personal attention
 
   // ── SEO / launch ──────────────────────────────────────────────────────
   seo: {
-    siteUrl: "",
-    indexable: false,
+    siteUrl: "https://www.jwcleaningdavison.com",
+    indexable: true,
   },
 };
 

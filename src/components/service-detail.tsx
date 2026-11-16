@@ -63,7 +63,7 @@ export function ServiceDetail() {
                 href="#estimate"
                 className="inline-flex h-12 items-center justify-center rounded-xl bg-primary px-6 text-sm font-semibold text-primary-foreground shadow-sm transition-all hover:bg-primary/90 hover:shadow-md"
               >
-                Get a Free Estimate
+                {service.cta}
               </a>
               <a
                 href={phoneHref}
@@ -90,6 +90,23 @@ export function ServiceDetail() {
             <p className="mt-4 text-pretty text-base leading-relaxed text-muted-foreground sm:text-lg">
               {service.overview}
             </p>
+            {service.related.length ? (
+              <p className="mt-4 text-sm leading-relaxed text-muted-foreground">
+                Also see:{" "}
+                {service.related.map((r, i) => (
+                  <span key={r.slug}>
+                    {i > 0 ? " · " : ""}
+                    <Link
+                      to="/services/$slug"
+                      params={{ slug: r.slug }}
+                      className="font-medium text-primary hover:underline"
+                    >
+                      {r.anchor}
+                    </Link>
+                  </span>
+                ))}
+              </p>
+            ) : null}
             <ul className="mt-8 grid grid-cols-1 gap-3 sm:grid-cols-2">
               {service.tasks.map((task) => (
                 <li
@@ -206,12 +223,12 @@ export function ServiceDetail() {
         </div>
       </section>
 
-      <FinalCtaInline />
+      <FinalCtaInline cta={service.cta} />
     </>
   );
 }
 
-function FinalCtaInline() {
+function FinalCtaInline({ cta }: { cta: string }) {
   return (
     <section className="px-4 py-16 sm:px-6 lg:px-8">
       <Reveal className="mx-auto max-w-5xl">
@@ -226,7 +243,7 @@ function FinalCtaInline() {
               href="#estimate"
               className="inline-flex h-12 items-center justify-center rounded-xl bg-background px-6 text-sm font-semibold text-primary transition-colors hover:bg-background/90"
             >
-              Get a Free Estimate
+              {cta}
             </a>
             <a
               href={phoneHref}

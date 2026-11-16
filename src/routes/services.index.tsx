@@ -2,7 +2,7 @@ import { createFileRoute, Link } from "@tanstack/react-router";
 import { ArrowRight } from "lucide-react";
 import { services } from "@/lib/services";
 import { business } from "@/lib/business";
-import { pageHead } from "@/lib/seo";
+import { breadcrumbJsonLd, pageHead } from "@/lib/seo";
 import { PageHero } from "@/components/page-hero";
 import { FinalCta } from "@/components/final-cta";
 import { Reveal } from "@/components/reveal";
@@ -10,10 +10,10 @@ import { Reveal } from "@/components/reveal";
 export const Route = createFileRoute("/services/")({
   head: () =>
     pageHead({
-      title: "Our Cleaning Services",
-      description: `Explore ${business.name}'s cleaning services: ${services
-        .map((s) => s.title.toLowerCase())
-        .join(", ")}. Request a free estimate.`,
+      title: "Our Cleaning Services | J W Cleaning, Davison MI",
+      rawTitle: true,
+      description: `Commercial cleaning, janitorial services, carpet cleaning, tile and grout, upholstery, and mattress cleaning in Davison, MI. Owner-operated by ${business.name} since 1992.`,
+      jsonLd: [breadcrumbJsonLd([["Services", "/services"]])],
       path: "/services",
       image: business.images.servicesHero.src,
     }),

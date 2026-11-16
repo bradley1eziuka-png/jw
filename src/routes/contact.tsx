@@ -7,7 +7,7 @@ import {
   phoneHref,
   primaryLocationLabel,
 } from "@/lib/business";
-import { localBusinessJsonLd, pageHead } from "@/lib/seo";
+import { breadcrumbJsonLd, pageHead } from "@/lib/seo";
 import { PageHero } from "@/components/page-hero";
 import { EstimateForm } from "@/components/estimate-form";
 import { Reveal } from "@/components/reveal";
@@ -15,11 +15,12 @@ import { Reveal } from "@/components/reveal";
 export const Route = createFileRoute("/contact")({
   head: () =>
     pageHead({
-      title: "Contact",
-      description: `Get in touch with ${business.name}. Request a free estimate for commercial cleaning, janitorial services, carpet cleaning, or tile and grout cleaning in Davison, MI, or call to discuss your needs.`,
+      title: "Contact J W Cleaning | Cleaning Estimates in Davison, MI",
+      rawTitle: true,
+      description: `Contact ${business.name} for commercial cleaning, janitorial, carpet cleaning, and tile cleaning estimates in Davison, MI. Call (810) 397-3562 or send a request online.`,
       path: "/contact",
       image: business.images.contactHero.src,
-      jsonLd: [localBusinessJsonLd()],
+      jsonLd: [breadcrumbJsonLd([["Contact", "/contact"]])],
     }),
   component: ContactPage,
 });
@@ -41,7 +42,7 @@ function ContactPage() {
       <PageHero
         eyebrow="Contact"
         title="Let's Talk About Your Cleaning Needs"
-        description="Request a free estimate below, or give Willy and the J W Cleaning team a call at (810) 397-3562 to talk through what you need."
+        description="Contact J W Cleaning to discuss your commercial cleaning, carpet cleaning, or janitorial service needs. Owner Willy Robere has served customers in the Davison area since 1992."
         image={business.images.contactHero.src}
         imageAlt={business.images.contactHero.alt}
       />

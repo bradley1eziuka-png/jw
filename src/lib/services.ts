@@ -47,6 +47,10 @@ export type Service = {
   seoTitle?: string;
   /** Optional custom meta description for the service page. */
   seoDescription?: string;
+  /** Service-specific estimate button label (kept short for mobile). */
+  cta: string;
+  /** Contextual links to related services, with descriptive anchor text. */
+  related: { slug: string; anchor: string }[];
 };
 
 const allServices: Service[] = [
@@ -62,34 +66,49 @@ const allServices: Service[] = [
     heroImage: IMG.svcCommercialCleaning,
     imagePosition: "25% center",
     heroAlt: "Mop cleaning the floor of a commercial office lobby",
-    eyebrow: "Commercial Cleaning",
-    tagline: "When quality counts, count on J W Cleaning.",
+    eyebrow: "Commercial · Davison, MI",
+    tagline: "A cleaner workplace for your staff and customers.",
     intro:
-      "Keep your business looking its best with dependable commercial cleaning from an owner-operated company with more than 30 years of experience.",
+      "J W Cleaning provides commercial cleaning for offices and businesses in Davison and nearby communities. Tell us about your property and we'll talk through what it needs.",
     overview:
-      "J W Cleaning provides commercial cleaning for businesses and commercial properties in Davison, Michigan and surrounding communities. Tell us about your space and what you need, and we'll talk through the right approach with you.",
+      "A clean building makes a good first impression and a more comfortable place to work. J W Cleaning has been cleaning in the Davison area since 1992, and every commercial job starts with a conversation about your space, your priorities and what you'd like done, so your estimate reflects your property rather than a one-size-fits-all package.",
     tasks: [
       "Offices and workspaces",
-      "Retail and commercial properties",
-      "Restrooms and common areas",
-      "Floors and entryways",
+      "Reception and entryway areas",
+      "Restrooms",
       "Breakrooms and shared spaces",
-      "Tailored to your space and needs",
+      "Floors and common areas",
+      "Scope based on your property",
     ],
     benefits: [
-      "Owner-operated, with personal attention",
-      "Over 30 years of experience",
-      "A clean, professional-looking space",
+      "A cleaner, more professional-looking space",
+      "Owner-operated and locally based",
+      "Estimate based on your property",
     ],
     faqs: [
       {
-        q: "What kinds of commercial spaces do you clean?",
-        a: "We work with businesses and commercial properties in Davison and surrounding communities. Contact us with details about your space and we'll let you know how we can help.",
+        q: "What types of businesses do you clean for?",
+        a: "J W Cleaning works with offices and other commercial properties in Davison, Lapeer County, Goodrich, Millington, Otisville and Ortonville. If you're not sure your property fits, call (810) 397-3562 and ask.",
       },
       {
-        q: "How do I get an estimate for my business?",
-        a: "Use the estimate form, call (810) 397-3562, or email robere7138@yahoo.com. We'll go over the details with you when you request your estimate.",
+        q: "Is commercial cleaning the same as janitorial service?",
+        a: "They overlap. Commercial cleaning is a good fit when you want a space cleaned, while janitorial service is about ongoing upkeep of a commercial property. Tell us what you need and we'll point you to the right option.",
       },
+      {
+        q: "What should I include when I request an estimate?",
+        a: "Describe the type of property, the areas you'd like cleaned and when you'd like service. We'll follow up to talk through the details.",
+      },
+    ],
+    seoTitle: "Commercial Cleaning in Davison, MI | J W Cleaning",
+    seoDescription:
+      "Commercial cleaning for offices and businesses in Davison, MI and nearby communities. Owner-operated since 1992. Request an estimate from J W Cleaning.",
+    cta: "Get a Commercial Cleaning Estimate",
+    related: [
+      {
+        slug: "commercial-janitorial-services",
+        anchor: "Explore our commercial janitorial services",
+      },
+      { slug: "commercial-carpet-cleaning", anchor: "Learn about commercial carpet cleaning" },
     ],
   },
   {
@@ -103,34 +122,47 @@ const allServices: Service[] = [
     imageAlt: "Janitorial cart with cleaning supplies in a commercial building hallway",
     heroImage: IMG.svcJanitorial,
     heroAlt: "Janitorial cart with cleaning supplies in a commercial building hallway",
-    eyebrow: "Janitorial Services",
-    tagline: "Dependable upkeep, day after day.",
+    eyebrow: "Janitorial · Davison, MI",
+    tagline: "Ongoing upkeep for your commercial property.",
     intro:
-      "Routine janitorial service helps your building stay clean for employees, customers, and visitors.",
+      "Keep your workplace clean from week to week with commercial janitorial service from J W Cleaning, serving Davison and nearby communities.",
     overview:
-      "J W Cleaning provides commercial janitorial services for businesses throughout Davison, Michigan and the surrounding area. Reach out to talk about your property and the schedule that makes sense for you.",
+      "Janitorial service is about ongoing upkeep: keeping a building tidy, restrooms fresh and common areas presentable between deeper cleanings. J W Cleaning provides commercial janitorial services in the Davison area. Every property is different, so we'll talk with you about what needs attention before putting together an estimate.",
     tasks: [
-      "Regular janitorial upkeep",
-      "Restrooms and common areas",
+      "Routine upkeep of offices and shared spaces",
+      "Restroom cleaning",
       "Trash and general tidying",
       "Floors and entryways",
-      "Offices and shared spaces",
-      "Service planned around your property",
+      "Breakrooms and common areas",
+      "A plan built around your property",
     ],
     benefits: [
       "One dependable, owner-operated provider",
-      "Over 30 years of experience",
-      "Personal attention to your property",
+      "Attention to the day-to-day details",
+      "Estimate based on your property",
     ],
     faqs: [
       {
-        q: "Do you offer recurring janitorial service?",
-        a: "Janitorial service is generally ongoing. Contact us with your property details and we'll discuss what schedule fits.",
+        q: "Is janitorial service one-time or ongoing?",
+        a: "Janitorial service is built around ongoing upkeep. Tell us what you're looking for when you request an estimate and we'll talk through the schedule that fits your property.",
       },
       {
-        q: "Can janitorial service be combined with carpet or tile cleaning?",
-        a: "J W Cleaning also offers commercial carpet cleaning and tile and grout cleaning. Ask about these when you request your estimate.",
+        q: "Which areas are included?",
+        a: "That depends on your property. Offices, restrooms, breakrooms, entryways and floors are common starting points, and we'll confirm the areas with you.",
       },
+      {
+        q: "Can I add carpet or floor care?",
+        a: "J W Cleaning also offers commercial carpet cleaning and tile floor stripping and waxing. Mention them when you request your estimate.",
+      },
+    ],
+    seoTitle: "Janitorial Services in Davison, MI | J W Cleaning",
+    seoDescription:
+      "Commercial janitorial services for Davison, MI businesses and nearby communities. Ongoing upkeep from an owner-operated cleaner since 1992. Request an estimate.",
+    cta: "Request a Janitorial Estimate",
+    related: [
+      { slug: "commercial-cleaning", anchor: "Learn about our commercial cleaning" },
+      { slug: "commercial-carpet-cleaning", anchor: "Commercial carpet cleaning" },
+      { slug: "tile-floor-stripping-waxing", anchor: "Tile floor stripping and waxing" },
     ],
   },
   {
@@ -145,34 +177,46 @@ const allServices: Service[] = [
     heroImage: IMG.svcResidentialCarpet,
     imagePosition: "80% center",
     heroAlt: "Carpet extraction wand cleaning a residential carpet",
-    eyebrow: "Residential Carpet Cleaning",
+    eyebrow: "Residential · Davison, MI",
     tagline: "Fresher carpets for your home.",
     intro:
-      "Carpet cleaning for your home from a local, owner-operated business with over 30 years of experience.",
+      "Carpet cleaning for homes in Davison and nearby communities, from a local owner-operated business with more than 30 years of experience.",
     overview:
-      "J W Cleaning offers residential carpet cleaning in Davison, Michigan and nearby communities such as Goodrich, Millington, Otisville, and Ortonville. Contact us with details about your carpets and we'll get you an estimate.",
+      "Carpets take daily wear from foot traffic, spills and everyday life. J W Cleaning offers residential carpet cleaning for homes in Davison, Goodrich, Millington, Otisville, Ortonville and the rest of Lapeer County. Tell us which rooms you have in mind and we'll provide an estimate.",
     tasks: [
-      "Carpet cleaning for living areas and bedrooms",
+      "Living rooms and family rooms",
+      "Bedrooms",
       "Hallways and stairs",
       "Homes of different sizes",
-      "Estimate based on your needs",
-      "Local, owner-operated service",
-      "Questions answered up front",
+      "Estimate based on the areas you choose",
+      "Questions answered before you book",
     ],
     benefits: [
-      "Personal attention from the owner's business",
-      "Over 30 years of experience",
+      "Local, owner-operated service",
       "Straightforward estimates",
+      "Experience since 1992",
     ],
     faqs: [
       {
-        q: "Do you clean carpets in homes?",
-        a: "Yes. Residential carpet cleaning is one of J W Cleaning's primary services.",
+        q: "How should I prepare for an estimate?",
+        a: "Have a list of the rooms or carpeted areas you'd like cleaned, plus any concerns such as stains or high-traffic spots. That helps us give you a clearer estimate.",
       },
       {
-        q: "How do I get a carpet cleaning estimate?",
-        a: "Use the estimate form or call (810) 397-3562. We'll go over the details with you when you request your estimate.",
+        q: "Which communities do you serve for home carpet cleaning?",
+        a: "We serve Davison, Lapeer County, Goodrich, Millington, Otisville and Ortonville.",
       },
+      {
+        q: "Can I have upholstery or mattresses cleaned too?",
+        a: "J W Cleaning also offers upholstery cleaning and mattress cleaning. Mention them when you request your estimate.",
+      },
+    ],
+    seoTitle: "Carpet Cleaning in Davison, MI for Homes | J W Cleaning",
+    seoDescription:
+      "Residential carpet cleaning in Davison, Goodrich, Millington, Otisville and Ortonville. Local, owner-operated since 1992. Request a carpet cleaning estimate.",
+    cta: "Get My Carpet Cleaning Estimate",
+    related: [
+      { slug: "upholstery-cleaning", anchor: "Learn about upholstery cleaning" },
+      { slug: "mattress-cleaning", anchor: "Mattress cleaning" },
     ],
   },
   {
@@ -187,34 +231,49 @@ const allServices: Service[] = [
     heroImage: IMG.svcCommercialCarpet,
     imagePosition: "80% center",
     heroAlt: "Carpet extraction wand cleaning an office carpet",
-    eyebrow: "Commercial Carpet Cleaning",
+    eyebrow: "Commercial · Davison, MI",
     tagline: "Carpets that help your business look its best.",
     intro:
-      "Carpet cleaning for businesses and commercial properties in Davison and surrounding communities.",
+      "Commercial carpet cleaning for offices and business properties in Davison and surrounding communities.",
     overview:
-      "J W Cleaning provides commercial carpet cleaning for offices and other commercial spaces. Share a few details about your property and we'll talk through your needs and provide an estimate.",
+      "Carpet in an office or business sees steady foot traffic, and it is one of the first things visitors notice. J W Cleaning provides commercial carpet cleaning in the Davison area. Share the size and type of your space and when you'd prefer service, and we'll talk through your options and provide an estimate.",
     tasks: [
-      "Offices and workspaces",
-      "Commercial and retail properties",
+      "Office carpeting",
       "Entryways and high-traffic areas",
-      "Common areas and hallways",
-      "Estimate based on your property",
-      "Can be paired with janitorial service",
+      "Hallways and common areas",
+      "Reception and meeting areas",
+      "Business and commercial properties",
+      "Estimate based on your space",
     ],
     benefits: [
       "Owner-operated, dependable service",
-      "Over 30 years of experience",
       "One contact for multiple cleaning needs",
+      "Experience since 1992",
     ],
     faqs: [
       {
-        q: "Do you clean carpets in commercial buildings?",
-        a: "Yes. Commercial carpet cleaning is one of J W Cleaning's primary services.",
+        q: "Can carpet cleaning be scheduled around my business hours?",
+        a: "Scheduling is something we discuss when you request an estimate. Let us know your hours and any timing needs.",
       },
       {
-        q: "Can you work with my business's schedule?",
-        a: "Tell us about your hours and property when you request an estimate, and we'll discuss what can work.",
+        q: "What should I tell you when requesting an estimate?",
+        a: "The type and size of the space, which carpeted areas you want cleaned and when you'd like service.",
       },
+      {
+        q: "Do you also provide janitorial service?",
+        a: "Yes. J W Cleaning offers commercial janitorial services as well as commercial cleaning, so you can ask about more than one service at once.",
+      },
+    ],
+    seoTitle: "Commercial Carpet Cleaning in Davison, MI | J W Cleaning",
+    seoDescription:
+      "Commercial carpet cleaning for offices and businesses in Davison, MI and nearby. Owner-operated since 1992. Request a commercial carpet cleaning estimate.",
+    cta: "Get a Commercial Carpet Estimate",
+    related: [
+      {
+        slug: "commercial-janitorial-services",
+        anchor: "Explore our commercial janitorial services",
+      },
+      { slug: "commercial-cleaning", anchor: "Commercial cleaning" },
     ],
   },
   {
@@ -228,33 +287,47 @@ const allServices: Service[] = [
     imageAlt: "Rotary cleaning tool on a tiled floor",
     heroImage: IMG.svcTileGrout,
     heroAlt: "Rotary cleaning tool on a tiled floor",
-    eyebrow: "Tile & Grout Cleaning",
+    eyebrow: "Tile · Davison, MI",
     tagline: "Tile that looks cared for.",
     intro:
-      "Tile and grout cleaning for residential and commercial spaces from a local, owner-operated business.",
+      "Tile and grout cleaning for homes and businesses in Davison and surrounding communities.",
     overview:
-      "J W Cleaning offers tile and grout cleaning in Davison, Michigan and surrounding communities. Contact us about the areas you have in mind and we'll provide an estimate.",
+      "Grout lines and tile floors collect dirt and can look worn long before the tile itself does. J W Cleaning offers tile and grout cleaning for residential and commercial spaces. Tell us which tiled areas you'd like cleaned and we'll talk through the work and give you an estimate.",
     tasks: [
       "Tile floors",
       "Grout lines",
-      "Bathrooms and kitchens",
-      "Entryways and commercial floors",
-      "Residential and commercial properties",
-      "Estimate based on your space",
+      "Homes and businesses",
+      "Estimate based on the area",
+      "Questions answered up front",
+      "Can be paired with floor stripping and waxing",
     ],
     benefits: [
       "Personal attention to the details",
-      "Over 30 years of experience",
+      "Local, owner-operated service",
       "Straightforward estimates",
     ],
     faqs: [
       {
-        q: "Do you clean tile and grout at businesses as well as homes?",
-        a: "Yes. J W Cleaning serves both residential and commercial customers.",
+        q: "What tile can you clean?",
+        a: "Tell us what type of tile you have and where it is when you request an estimate, and we'll confirm whether we can help.",
       },
       {
-        q: "How do I get an estimate?",
-        a: "Use the estimate form or call (810) 397-3562. We'll go over the details with you when you request your estimate.",
+        q: "How is the estimate determined?",
+        a: "It depends on the area and what you need cleaned. Share the details and we'll talk them through with you.",
+      },
+      {
+        q: "Is floor stripping and waxing the same service?",
+        a: "No. Tile floor stripping and waxing is a separate J W Cleaning service. Ask about it if you're also thinking about the finish on your floors.",
+      },
+    ],
+    seoTitle: "Tile and Grout Cleaning in Davison, MI | J W Cleaning",
+    seoDescription:
+      "Tile and grout cleaning for homes and businesses in Davison, MI and nearby communities. Owner-operated since 1992. Request a tile cleaning estimate.",
+    cta: "Request a Tile Cleaning Estimate",
+    related: [
+      {
+        slug: "tile-floor-stripping-waxing",
+        anchor: "View our tile floor stripping and waxing service",
       },
     ],
   },
@@ -270,30 +343,42 @@ const allServices: Service[] = [
     heroImage: IMG.svcUpholstery,
     imagePosition: "80% center",
     heroAlt: "Upholstery extraction wand cleaning a fabric sofa",
-    eyebrow: "Upholstery Cleaning",
+    eyebrow: "Furniture · Davison, MI",
     tagline: "Fresher furniture.",
     intro:
-      "Upholstery cleaning from J W Cleaning, an owner-operated business serving Davison and nearby communities.",
+      "Upholstery cleaning from a local, owner-operated cleaner serving Davison and nearby communities.",
     overview:
-      "J W Cleaning offers upholstery cleaning for furniture. Contact us to tell us about the pieces you have and we'll discuss your options and an estimate.",
+      "Sofas and chairs get used every day and it shows. J W Cleaning offers upholstery cleaning for furniture. Tell us what pieces you have and what you'd like done, and we'll talk through your options and provide an estimate.",
     tasks: [
       "Sofas and chairs",
       "Upholstered furniture",
       "Homes and businesses",
       "Estimate based on the pieces",
       "Questions answered up front",
-      "Local, owner-operated",
+      "Can be combined with carpet cleaning",
     ],
-    benefits: ["Personal attention", "Over 30 years of experience", "Straightforward estimates"],
+    benefits: ["Personal attention", "Local, owner-operated service", "Experience since 1992"],
     faqs: [
       {
-        q: "What can you clean?",
-        a: "Tell us about the furniture you have when you request an estimate and we'll let you know if we can help.",
+        q: "What furniture can you clean?",
+        a: "Tell us about the pieces you have when you request an estimate, and we'll let you know whether we can help.",
       },
       {
-        q: "Can I bundle upholstery with carpet cleaning?",
-        a: "J W Cleaning offers both. Mention everything you'd like cleaned when you request your estimate.",
+        q: "Can I combine upholstery cleaning with carpet cleaning?",
+        a: "J W Cleaning offers residential and commercial carpet cleaning as well. Mention everything you'd like cleaned when you request your estimate.",
       },
+      {
+        q: "How do I get an estimate?",
+        a: "Use the estimate form or call (810) 397-3562. A short description of the furniture and where it is located is all we need to start.",
+      },
+    ],
+    seoTitle: "Upholstery Cleaning in Davison, MI | J W Cleaning",
+    seoDescription:
+      "Upholstery cleaning in Davison, MI for furniture at homes and businesses. Local, owner-operated since 1992. Request an upholstery cleaning estimate.",
+    cta: "Request an Upholstery Estimate",
+    related: [
+      { slug: "residential-carpet-cleaning", anchor: "Learn about residential carpet cleaning" },
+      { slug: "mattress-cleaning", anchor: "Mattress cleaning" },
     ],
   },
   {
@@ -308,12 +393,12 @@ const allServices: Service[] = [
     heroImage: IMG.svcMattress,
     imagePosition: "80% center",
     heroAlt: "Extraction wand cleaning a mattress",
-    eyebrow: "Mattress Cleaning",
+    eyebrow: "Bedroom · Davison, MI",
     tagline: "A fresher place to sleep.",
     intro:
-      "Mattress cleaning from a local, owner-operated cleaning business with over 30 years of experience.",
+      "Mattress cleaning from a local, owner-operated cleaning business serving Davison and nearby communities.",
     overview:
-      "J W Cleaning offers mattress cleaning. Contact us to discuss what you need and request an estimate.",
+      "A mattress is easy to overlook when you clean a home. J W Cleaning offers mattress cleaning; contact us to talk about what you'd like done and we'll provide an estimate.",
     tasks: [
       "Mattress cleaning",
       "Bedrooms in homes",
@@ -322,16 +407,25 @@ const allServices: Service[] = [
       "Local, owner-operated",
       "Can be combined with other services",
     ],
-    benefits: ["Personal attention", "Over 30 years of experience", "Straightforward estimates"],
+    benefits: ["Personal attention", "Experience since 1992", "Straightforward estimates"],
     faqs: [
       {
-        q: "How do I request mattress cleaning?",
-        a: "Use the estimate form or call (810) 397-3562. We'll go over the details with you when you request your estimate.",
+        q: "What should I discuss before booking mattress cleaning?",
+        a: "Let us know how many mattresses you have, their sizes and any concerns you'd like addressed, and we'll go over the details with you.",
       },
       {
-        q: "Can I combine it with carpet cleaning?",
-        a: "J W Cleaning offers carpet cleaning too. Mention everything you'd like cleaned when you request your estimate.",
+        q: "Can I add other services?",
+        a: "J W Cleaning also offers residential carpet cleaning and upholstery cleaning. Mention them when you request your estimate.",
       },
+      { q: "How do I request an estimate?", a: "Use the estimate form or call (810) 397-3562." },
+    ],
+    seoTitle: "Mattress Cleaning in Davison, MI | J W Cleaning",
+    seoDescription:
+      "Mattress cleaning in Davison, MI from a local, owner-operated cleaner serving homes since 1992. Request a mattress cleaning estimate from J W Cleaning.",
+    cta: "Request a Mattress Cleaning Estimate",
+    related: [
+      { slug: "residential-carpet-cleaning", anchor: "Learn about residential carpet cleaning" },
+      { slug: "upholstery-cleaning", anchor: "Upholstery cleaning" },
     ],
   },
   {
@@ -345,29 +439,42 @@ const allServices: Service[] = [
     imageAlt: "Floor machine cleaning a tiled floor in a commercial hallway",
     heroImage: IMG.svcFloorStripping,
     heroAlt: "Floor machine cleaning a tiled floor in a commercial hallway",
-    eyebrow: "Floor Stripping & Waxing",
+    eyebrow: "Floor care · Davison, MI",
     tagline: "Floors that look cared for.",
-    intro: "Tile floor stripping and waxing from a local, owner-operated business.",
+    intro:
+      "Tile floor stripping and waxing from a local, owner-operated business serving Davison and nearby communities.",
     overview:
-      "J W Cleaning offers tile floor stripping and waxing. Tell us about your floors and we'll discuss the work and provide an estimate.",
+      "Over time, floor finish wears down and floors lose their polished look. J W Cleaning offers tile floor stripping and waxing for businesses and properties that want a cleaner, more finished appearance. Tell us about your floors and we'll discuss the work and provide an estimate.",
     tasks: [
       "Tile floor stripping",
       "Floor waxing",
       "Commercial and residential floors",
       "Estimate based on your floors",
       "Questions answered up front",
-      "Local, owner-operated",
+      "Can be paired with janitorial service",
     ],
-    benefits: ["Personal attention", "Over 30 years of experience", "Straightforward estimates"],
+    benefits: ["Personal attention", "Experience since 1992", "Straightforward estimates"],
     faqs: [
       {
-        q: "Do you offer floor stripping and waxing?",
-        a: "Yes. Tile floor stripping and waxing is one of the services listed by J W Cleaning.",
+        q: "What floors can be stripped and waxed?",
+        a: "This service is for tile floors. Tell us about your flooring when you request an estimate and we'll confirm whether we can help.",
       },
       {
-        q: "How do I get an estimate?",
-        a: "Use the estimate form or call (810) 397-3562. We'll go over the details with you when you request your estimate.",
+        q: "How do businesses request an estimate?",
+        a: "Use the estimate form or call (810) 397-3562. Describe the space, the type of flooring and the approximate area.",
       },
+      {
+        q: "Can I combine this with janitorial or tile cleaning?",
+        a: "J W Cleaning also offers commercial janitorial services and tile and grout cleaning. Mention them when you request your estimate.",
+      },
+    ],
+    seoTitle: "Floor Stripping and Waxing in Davison, MI | J W Cleaning",
+    seoDescription:
+      "Tile floor stripping and waxing in Davison, MI for businesses and properties. Owner-operated since 1992. Request a floor stripping and waxing estimate.",
+    cta: "Request a Floor Stripping Estimate",
+    related: [
+      { slug: "tile-grout-cleaning", anchor: "View our tile and grout cleaning services" },
+      { slug: "commercial-janitorial-services", anchor: "Commercial janitorial services" },
     ],
   },
 ];

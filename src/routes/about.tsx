@@ -2,7 +2,7 @@ import { createFileRoute } from "@tanstack/react-router";
 import { Link } from "@tanstack/react-router";
 import { Check, Clock, Heart, MessageSquareText, Sparkles } from "lucide-react";
 import { business } from "@/lib/business";
-import { pageHead } from "@/lib/seo";
+import { breadcrumbJsonLd, pageHead } from "@/lib/seo";
 import { PageHero } from "@/components/page-hero";
 import { FinalCta } from "@/components/final-cta";
 import { Reveal } from "@/components/reveal";
@@ -11,10 +11,12 @@ import { Button } from "@/components/ui/button";
 export const Route = createFileRoute("/about")({
   head: () =>
     pageHead({
-      title: "About Us",
-      description: `${business.name} was founded in 1992 by Willy Robere. Owner-operated cleaning with over 30 years of experience, serving Davison, MI and surrounding communities.`,
+      title: "About J W Cleaning | Serving Davison Since 1992",
+      rawTitle: true,
+      description: `${business.name} was founded in 1992 by Willy Robere. Learn about this owner-operated cleaning business serving Davison, MI and nearby communities.`,
       path: "/about",
       image: business.images.about.src,
+      jsonLd: [breadcrumbJsonLd([["About", "/about"]])],
     }),
   component: AboutPage,
 });
@@ -37,6 +39,7 @@ function AboutPage() {
         description="J W Cleaning was founded by Willy Robere with a commitment to dependable service and quality results. When Quality Counts."
         image={business.images.about.src}
         imageAlt={business.images.about.alt}
+        tagline="When Quality Counts"
       />
 
       <section className="px-4 py-20 sm:px-6 lg:px-8 lg:py-24">
@@ -51,7 +54,12 @@ function AboutPage() {
             <p className="mt-4 text-pretty text-base leading-relaxed text-muted-foreground sm:text-lg">
               J W Cleaning is an owner-operated business serving Davison, Michigan and surrounding
               communities, including Lapeer County, Goodrich, Millington, Otisville, and Ortonville.
-              The focus is simple: personal attention, dependable service, and doing the job right.
+              The focus is simple: personal attention, dependable service, and doing the job right,
+              whether it&rsquo;s a{" "}
+              <Link to="/services" className="font-medium text-primary hover:underline">
+                commercial cleaning or carpet cleaning
+              </Link>{" "}
+              project.
             </p>
             <ul className="mt-7 flex flex-col gap-3">
               {POINTS.map((p) => (

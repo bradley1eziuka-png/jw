@@ -1,6 +1,6 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { business } from "@/lib/business";
-import { pageHead } from "@/lib/seo";
+import { breadcrumbJsonLd, pageHead } from "@/lib/seo";
 import { PageHero } from "@/components/page-hero";
 import { FinalCta } from "@/components/final-cta";
 import { Reveal } from "@/components/reveal";
@@ -8,11 +8,12 @@ import { Reveal } from "@/components/reveal";
 export const Route = createFileRoute("/gallery")({
   head: () =>
     pageHead({
-      title: "Gallery",
+      title: "Cleaning Services Gallery",
       description: business.gallery.isSample
         ? `Sample images of clean residential and commercial spaces. Cleaning services from ${business.name} in Davison, MI.`
         : `Residential and commercial cleaning work from ${business.name} in Davison, MI.`,
       path: "/gallery",
+      jsonLd: [breadcrumbJsonLd([["Gallery", "/gallery"]])],
       image: business.gallery.images[0]?.src,
     }),
   component: GalleryPage,

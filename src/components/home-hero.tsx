@@ -33,15 +33,15 @@ export function HomeHero() {
               {business.businessType}
             </span>
             <h1 className="text-balance text-4xl font-bold leading-[1.08] text-foreground sm:text-5xl lg:text-[3.6rem]">
-              Commercial &amp; Carpet Cleaning in Davison, MI: Trusted Since 1992
+              Commercial &amp; Carpet Cleaning in Davison, MI Since 1992
             </h1>
             <p className="mt-3 font-serif text-lg italic text-brand-red sm:text-xl">
               {business.tagline}
             </p>
             <p className="mt-5 max-w-xl text-pretty text-base leading-relaxed text-muted-foreground sm:text-lg">
-              From commercial janitorial services to residential carpet and tile cleaning, J W
-              Cleaning delivers dependable results backed by over 30 years of experience. Owner
-              Willy Robere takes pride in every job and puts customer satisfaction first.
+              From ongoing janitorial services to residential carpet and tile cleaning, J W Cleaning
+              helps homeowners and businesses keep their spaces clean and presentable. Owner Willy
+              Robere has more than 30 years of cleaning experience and takes pride in quality work.
             </p>
 
             <div className="mt-7 flex flex-col gap-3 sm:flex-row">

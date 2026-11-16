@@ -5,7 +5,7 @@ import { siteIsIndexable } from "@/lib/seo";
 
 // Built from the enabled services in services.ts, so disabled/removed services
 // never appear. While the site is not indexable the sitemap is intentionally empty.
-const STATIC_PATHS = ["/", "/services", "/about", "/gallery", "/reviews", "/contact"];
+const STATIC_PATHS = ["/", "/services", "/about", "/gallery", "/contact"];
 
 export const Route = createFileRoute("/sitemap.xml")({
   server: {

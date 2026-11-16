@@ -1,6 +1,5 @@
 import { Link } from "@tanstack/react-router";
 import { ChevronRight } from "lucide-react";
-import { business } from "@/lib/business";
 import { Reveal } from "@/components/reveal";
 
 /** Breadcrumb-style page header used on interior pages. */
@@ -10,12 +9,15 @@ export function PageHero({
   description,
   image,
   imageAlt,
+  tagline,
 }: {
   eyebrow: string;
   title: string;
   description?: string;
   image: string;
   imageAlt: string;
+  /** Optional italic line under the description. */
+  tagline?: string;
 }) {
   return (
     <section className="relative overflow-hidden border-b border-border">
@@ -46,9 +48,9 @@ export function PageHero({
               {description}
             </p>
           ) : null}
-          <p className="mt-6 font-serif text-base italic text-foreground/70">
-            Brought to you by {business.name}.
-          </p>
+          {tagline ? (
+            <p className="mt-6 font-serif text-base italic text-foreground/70">{tagline}</p>
+          ) : null}
         </Reveal>
       </div>
     </section>
