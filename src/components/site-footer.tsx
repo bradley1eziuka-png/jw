@@ -124,6 +124,14 @@ export function SiteFooter() {
               ))}
               <li>
                 <Link
+                  to="/service-areas"
+                  className="text-sm text-muted-foreground transition-colors hover:text-primary"
+                >
+                  Service Areas
+                </Link>
+              </li>
+              <li>
+                <Link
                   to="/services"
                   className="text-sm text-muted-foreground transition-colors hover:text-primary"
                 >

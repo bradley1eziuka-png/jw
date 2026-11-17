@@ -1,3 +1,4 @@
+import type { ReactNode } from "react";
 import { Link } from "@tanstack/react-router";
 import { ChevronRight } from "lucide-react";
 import { Reveal } from "@/components/reveal";
@@ -10,6 +11,8 @@ export function PageHero({
   image,
   imageAlt,
   tagline,
+  parent,
+  children,
 }: {
   eyebrow: string;
   title: string;
@@ -18,6 +21,10 @@ export function PageHero({
   imageAlt: string;
   /** Optional italic line under the description. */
   tagline?: string;
+  /** Optional middle breadcrumb, e.g. Home > Service Areas > Davison. */
+  parent?: { label: string; to: string };
+  /** Optional content under the description (e.g. CTA buttons). */
+  children?: ReactNode;
 }) {
   return (
     <section className="relative overflow-hidden border-b border-border">
@@ -35,6 +42,14 @@ export function PageHero({
               Home
             </Link>
             <ChevronRight className="h-3.5 w-3.5" />
+            {parent ? (
+              <>
+                <Link to={parent.to} className="transition-colors hover:text-primary">
+                  {parent.label}
+                </Link>
+                <ChevronRight className="h-3.5 w-3.5" />
+              </>
+            ) : null}
             <span className="text-primary">{eyebrow}</span>
           </nav>
           <span className="mb-3 inline-block text-xs font-semibold uppercase tracking-[0.18em] text-primary">
@@ -48,6 +63,7 @@ export function PageHero({
               {description}
             </p>
           ) : null}
+          {children}
           {tagline ? (
             <p className="mt-6 font-serif text-base italic text-foreground/70">{tagline}</p>
           ) : null}

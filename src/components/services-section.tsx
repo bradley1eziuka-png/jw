@@ -4,15 +4,19 @@ import { services } from "@/lib/services";
 import { SectionHeading } from "@/components/section-heading";
 import { Reveal } from "@/components/reveal";
 
-export function ServicesSection() {
+export function ServicesSection({
+  eyebrow = "What We Do",
+  title = "Commercial & Residential Cleaning Services",
+  description = "From commercial cleaning and janitorial services to carpet, tile and grout cleaning, find the right service for your property in Davison and surrounding communities.",
+}: {
+  eyebrow?: string;
+  title?: string;
+  description?: string;
+} = {}) {
   return (
     <section id="services" className="px-4 py-20 sm:px-6 lg:px-8 lg:py-28">
       <div className="mx-auto max-w-7xl">
-        <SectionHeading
-          eyebrow="What We Do"
-          title="Commercial & Residential Cleaning Services"
-          description="Whether you need dependable commercial cleaning, ongoing janitorial service, or professional carpet and tile cleaning, J W Cleaning brings decades of experience to every job."
-        />
+        <SectionHeading eyebrow={eyebrow} title={title} description={description} />
 
         <div className="mt-14 grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3">
           {services.map((s, i) => (

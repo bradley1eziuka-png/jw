@@ -24,10 +24,15 @@ const BENEFITS = [
   },
 ];
 
-export function BenefitsStrip() {
+export function BenefitsStrip({ title }: { title?: string } = {}) {
   return (
     <section className="border-b border-border bg-secondary/40">
       <div className="mx-auto max-w-7xl px-4 py-12 sm:px-6 lg:px-8 lg:py-14">
+        {title ? (
+          <h2 className="mb-8 text-balance text-2xl font-bold text-foreground sm:text-3xl">
+            {title}
+          </h2>
+        ) : null}
         <div className="grid grid-cols-2 gap-x-6 gap-y-8 lg:grid-cols-4">
           {BENEFITS.map(({ icon: Icon, title, desc }, i) => (
             <Reveal key={title} delay={i * 70}>

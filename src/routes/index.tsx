@@ -6,6 +6,7 @@ import { AboutSection } from "@/components/about-section";
 import { HowItWorks } from "@/components/how-it-works";
 import { GallerySection } from "@/components/gallery-section";
 import { ReviewsSection } from "@/components/reviews-section";
+import { ServiceAreasSection } from "@/components/service-areas-section";
 import { FaqSection } from "@/components/faq-section";
 import { FinalCta } from "@/components/final-cta";
 import {
@@ -38,6 +39,7 @@ function Index() {
       <HowItWorks />
       <GallerySection />
       <ReviewsSection />
+      <ServiceAreasSection />
       <FaqSection />
       <FinalCta />
     </>

@@ -9,6 +9,7 @@ import { cn } from "@/lib/utils";
 
 const NAV = [
   { label: "Services", to: "/services" },
+  { label: "Service Areas", to: "/service-areas" },
   { label: "About", to: "/about" },
   { label: "Gallery", to: "/gallery" },
   { label: "Reviews", to: "/reviews" },
@@ -101,7 +102,9 @@ export function SiteHeader() {
               key={item.to}
               to={item.to}
               className={cn(
-                "rounded-lg px-3.5 py-2 text-sm font-medium transition-colors",
+                "whitespace-nowrap rounded-lg px-3.5 py-2 text-sm font-medium transition-colors",
+                // Keep the desktop bar uncluttered at 1024px; the page stays in the mobile menu, footer and homepage.
+                item.to === "/service-areas" && "hidden xl:block",
                 isActive(item.to) ? "text-primary" : "text-foreground/80 hover:text-primary",
               )}
             >
@@ -113,7 +116,7 @@ export function SiteHeader() {
         <div className="flex items-center gap-2">
           <a
             href={phoneHref}
-            className="hidden items-center gap-2 rounded-lg px-3 py-2 text-sm font-semibold text-primary transition-colors hover:bg-secondary md:inline-flex"
+            className="hidden items-center whitespace-nowrap gap-2 rounded-lg px-3 py-2 text-sm font-semibold text-primary transition-colors hover:bg-secondary md:inline-flex"
           >
             <Phone className="h-4 w-4" />
             <span className="tabular-nums">{phoneDisplay}</span>

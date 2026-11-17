@@ -16,9 +16,12 @@ import { Route as GalleryRouteImport } from './routes/gallery'
 import { Route as PrivacyRouteImport } from './routes/privacy'
 import { Route as ReviewsRouteImport } from './routes/reviews'
 import { Route as RobotsDottxtRouteImport } from './routes/robots[.]txt'
+import { Route as ServiceAreasRouteImport } from './routes/service-areas'
 import { Route as ServicesRouteImport } from './routes/services'
 import { Route as SitemapDotxmlRouteImport } from './routes/sitemap[.]xml'
 import { Route as TermsRouteImport } from './routes/terms'
+import { Route as ServiceAreasIndexRouteImport } from './routes/service-areas.index'
+import { Route as ServiceAreasSlugRouteImport } from './routes/service-areas.$slug'
 import { Route as ServicesIndexRouteImport } from './routes/services.index'
 import { Route as ServicesSlugRouteImport } from './routes/services.$slug'
 
@@ -57,6 +60,11 @@ const RobotsDottxtRoute = RobotsDottxtRouteImport.update({
   path: '/robots.txt',
   getParentRoute: () => rootRouteImport,
 } as any)
+const ServiceAreasRoute = ServiceAreasRouteImport.update({
+  id: '/service-areas',
+  path: '/service-areas',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const ServicesRoute = ServicesRouteImport.update({
   id: '/services',
   path: '/services',
@@ -71,6 +79,16 @@ const TermsRoute = TermsRouteImport.update({
   id: '/terms',
   path: '/terms',
   getParentRoute: () => rootRouteImport,
+} as any)
+const ServiceAreasIndexRoute = ServiceAreasIndexRouteImport.update({
+  id: '/',
+  path: '/',
+  getParentRoute: () => ServiceAreasRoute,
+} as any)
+const ServiceAreasSlugRoute = ServiceAreasSlugRouteImport.update({
+  id: '/$slug',
+  path: '/$slug',
+  getParentRoute: () => ServiceAreasRoute,
 } as any)
 const ServicesIndexRoute = ServicesIndexRouteImport.update({
   id: '/',
@@ -91,10 +109,13 @@ export interface FileRoutesByFullPath {
   '/privacy': typeof PrivacyRoute
   '/reviews': typeof ReviewsRoute
   '/robots.txt': typeof RobotsDottxtRoute
+  '/service-areas': typeof ServiceAreasRouteWithChildren
   '/services': typeof ServicesRouteWithChildren
   '/sitemap.xml': typeof SitemapDotxmlRoute
   '/terms': typeof TermsRoute
+  '/service-areas/$slug': typeof ServiceAreasSlugRoute
   '/services/$slug': typeof ServicesSlugRoute
+  '/service-areas/': typeof ServiceAreasIndexRoute
   '/services/': typeof ServicesIndexRoute
 }
 export interface FileRoutesByTo {
@@ -107,7 +128,9 @@ export interface FileRoutesByTo {
   '/robots.txt': typeof RobotsDottxtRoute
   '/sitemap.xml': typeof SitemapDotxmlRoute
   '/terms': typeof TermsRoute
+  '/service-areas/$slug': typeof ServiceAreasSlugRoute
   '/services/$slug': typeof ServicesSlugRoute
+  '/service-areas': typeof ServiceAreasIndexRoute
   '/services': typeof ServicesIndexRoute
 }
 export interface FileRoutesById {
@@ -119,10 +142,13 @@ export interface FileRoutesById {
   '/privacy': typeof PrivacyRoute
   '/reviews': typeof ReviewsRoute
   '/robots.txt': typeof RobotsDottxtRoute
+  '/service-areas': typeof ServiceAreasRouteWithChildren
   '/services': typeof ServicesRouteWithChildren
   '/sitemap.xml': typeof SitemapDotxmlRoute
   '/terms': typeof TermsRoute
+  '/service-areas/$slug': typeof ServiceAreasSlugRoute
   '/services/$slug': typeof ServicesSlugRoute
+  '/service-areas/': typeof ServiceAreasIndexRoute
   '/services/': typeof ServicesIndexRoute
 }
 export interface FileRouteTypes {
@@ -135,10 +161,13 @@ export interface FileRouteTypes {
     | '/privacy'
     | '/reviews'
     | '/robots.txt'
+    | '/service-areas'
     | '/services'
     | '/sitemap.xml'
     | '/terms'
+    | '/service-areas/$slug'
     | '/services/$slug'
+    | '/service-areas/'
     | '/services/'
   fileRoutesByTo: FileRoutesByTo
   to:
@@ -151,7 +180,9 @@ export interface FileRouteTypes {
     | '/robots.txt'
     | '/sitemap.xml'
     | '/terms'
+    | '/service-areas/$slug'
     | '/services/$slug'
+    | '/service-areas'
     | '/services'
   id:
     | '__root__'
@@ -162,10 +193,13 @@ export interface FileRouteTypes {
     | '/privacy'
     | '/reviews'
     | '/robots.txt'
+    | '/service-areas'
     | '/services'
     | '/sitemap.xml'
     | '/terms'
+    | '/service-areas/$slug'
     | '/services/$slug'
+    | '/service-areas/'
     | '/services/'
   fileRoutesById: FileRoutesById
 }
@@ -177,6 +211,7 @@ export interface RootRouteChildren {
   PrivacyRoute: typeof PrivacyRoute
   ReviewsRoute: typeof ReviewsRoute
   RobotsDottxtRoute: typeof RobotsDottxtRoute
+  ServiceAreasRoute: typeof ServiceAreasRouteWithChildren
   ServicesRoute: typeof ServicesRouteWithChildren
   SitemapDotxmlRoute: typeof SitemapDotxmlRoute
   TermsRoute: typeof TermsRoute
@@ -233,6 +268,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof RobotsDottxtRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/service-areas': {
+      id: '/service-areas'
+      path: '/service-areas'
+      fullPath: '/service-areas'
+      preLoaderRoute: typeof ServiceAreasRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/services': {
       id: '/services'
       path: '/services'
@@ -254,6 +296,20 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof TermsRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/service-areas/': {
+      id: '/service-areas/'
+      path: '/'
+      fullPath: '/service-areas/'
+      preLoaderRoute: typeof ServiceAreasIndexRouteImport
+      parentRoute: typeof ServiceAreasRoute
+    }
+    '/service-areas/$slug': {
+      id: '/service-areas/$slug'
+      path: '/$slug'
+      fullPath: '/service-areas/$slug'
+      preLoaderRoute: typeof ServiceAreasSlugRouteImport
+      parentRoute: typeof ServiceAreasRoute
+    }
     '/services/': {
       id: '/services/'
       path: '/'
@@ -270,6 +326,20 @@ declare module '@tanstack/react-router' {
     }
   }
 }
+
+interface ServiceAreasRouteChildren {
+  ServiceAreasSlugRoute: typeof ServiceAreasSlugRoute
+  ServiceAreasIndexRoute: typeof ServiceAreasIndexRoute
+}
+
+const ServiceAreasRouteChildren: ServiceAreasRouteChildren = {
+  ServiceAreasSlugRoute: ServiceAreasSlugRoute,
+  ServiceAreasIndexRoute: ServiceAreasIndexRoute,
+}
+
+const ServiceAreasRouteWithChildren = ServiceAreasRoute._addFileChildren(
+  ServiceAreasRouteChildren,
+)
 
 interface ServicesRouteChildren {
   ServicesSlugRoute: typeof ServicesSlugRoute
@@ -293,6 +363,7 @@ const rootRouteChildren: RootRouteChildren = {
   PrivacyRoute: PrivacyRoute,
   ReviewsRoute: ReviewsRoute,
   RobotsDottxtRoute: RobotsDottxtRoute,
+  ServiceAreasRoute: ServiceAreasRouteWithChildren,
   ServicesRoute: ServicesRouteWithChildren,
   SitemapDotxmlRoute: SitemapDotxmlRoute,
   TermsRoute: TermsRoute,

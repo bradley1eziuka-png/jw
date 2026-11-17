@@ -69,8 +69,11 @@ export function pageHead({
     meta.push({ property: "og:image", content: ogImage });
     meta.push({ name: "twitter:image", content: ogImage });
   }
-  if (!siteIsIndexable || noindex) {
+  if (!siteIsIndexable) {
     meta.push({ name: "robots", content: "noindex, nofollow" });
+  } else if (noindex) {
+    // Keep link discovery working while the page itself stays out of search.
+    meta.push({ name: "robots", content: "noindex, follow" });
   }
 
   const links: Link[] = [];
@@ -195,6 +198,21 @@ export function breadcrumbJsonLd(items: [string, string][]): object {
       item: absoluteUrl(path) || undefined,
     })),
   };
+}
+
+/** Service-area page: the same single business, with the specific area it serves. */
+export function serviceAreaJsonLd(name: string, kind: "city" | "county", path: string): object {
+  return stripUndefined({
+    "@context": "https://schema.org",
+    "@type": "Service",
+    name: `Cleaning services in ${name}`,
+    serviceType: "Cleaning services",
+    url: absoluteUrl(path) || undefined,
+    provider: businessId()
+      ? { "@id": businessId() }
+      : { "@type": business.schemaType, name: business.name, telephone: business.contact.phone },
+    areaServed: { "@type": kind === "county" ? "AdministrativeArea" : "City", name },
+  });
 }
 
 export function serviceJsonLd(s: Service): object {

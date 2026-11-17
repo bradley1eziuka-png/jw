@@ -1,18 +1,24 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { absoluteUrl } from "@/lib/business";
 import { services } from "@/lib/services";
+import { serviceAreas } from "@/lib/service-areas";
 import { siteIsIndexable } from "@/lib/seo";
 
 // Built from the enabled services in services.ts, so disabled/removed services
 // never appear. While the site is not indexable the sitemap is intentionally empty.
-const STATIC_PATHS = ["/", "/services", "/about", "/gallery", "/contact"];
+const STATIC_PATHS = ["/", "/services", "/service-areas", "/about", "/gallery", "/contact"];
 
 export const Route = createFileRoute("/sitemap.xml")({
   server: {
     handlers: {
       GET: () => {
         const paths = siteIsIndexable
-          ? [...STATIC_PATHS, ...services.map((s) => `/services/${s.slug}`)]
+          ? [
+              ...STATIC_PATHS,
+              ...services.map((s) => `/services/${s.slug}`),
+              // Only service-area pages with enough unique local value (indexable: true).
+              ...serviceAreas.filter((a) => a.indexable).map((a) => `/service-areas/${a.slug}`),
+            ]
           : [];
         const urls = paths
           .map((p) => `  <url><loc>${escapeXml(absoluteUrl(p))}</loc></url>`)
